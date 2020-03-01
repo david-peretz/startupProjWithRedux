@@ -9,7 +9,7 @@ import { FilterPipe } from "src/app/core/pipes/filter.pipe";
 import { CrudFormComponent } from "./components/entity-detail/crud-form.component";
 import { SearchComponent } from "./components/search/search.component";
 import { AttributesService } from "./services/attributes.service";
-import { SuppliersComponent } from "./components/supplier/suppliers.component";
+import { SuppliersComponent } from "./components/suppliers/suppliers.component";
 import { SearchService } from "./services/search.service";
 
 const routes: Routes = [

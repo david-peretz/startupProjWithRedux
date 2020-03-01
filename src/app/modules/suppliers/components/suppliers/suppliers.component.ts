@@ -10,10 +10,7 @@ import { Supplier } from "../../interfaces/supplier.resource";
 export class SuppliersComponent implements OnInit {
   suppliers: Supplier[];
   searchText: String;
-  constructor(private suppliersSrv: SuppliersService) {}
+  constructor() {}
 
-  async ngOnInit() {
-    await this.suppliersSrv.fetchSuppliers();
-    this.suppliers = this.suppliersSrv.suppliers;
-  }
+  ngOnInit() {}
 }
