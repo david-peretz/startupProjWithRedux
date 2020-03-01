@@ -16,16 +16,16 @@ export class EntitiesComponent implements OnInit {
 
   constructor(
     searchService: SearchService,
-    private suppliersService: SuppliersService
+    private suppliersSrv: SuppliersService
   ) {
     this.searchText$ = searchService.getState();
     console.log(this.searchText$);
   }
 
   async ngOnInit() {
-    await this.suppliersService.fetchSuppliers();
+    await this.suppliersSrv.fetchSuppliers();
 
-    this.models = this.suppliersService.suppliers;
+    this.models = this.suppliersSrv.suppliers;
 
     console.log(this.models);
 
