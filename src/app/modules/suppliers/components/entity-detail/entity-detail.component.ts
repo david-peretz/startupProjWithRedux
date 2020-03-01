@@ -23,7 +23,7 @@ export class EntityDetailComponent implements OnInit {
   async ngOnInit() {
     if (this.invalidValue) this.router.navigate(["/suppliers"]);
     const suppliers = await this.suppliersSrv.suppliers;
-    
+
     const attributes = await this.attrSrv.getAll();
     this.attributes = [...attributes];
     if (this.isAddMode) return;
@@ -34,7 +34,7 @@ export class EntityDetailComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.suppliersSrv.updateLocal(this.suppliers);
+    this.suppliersSrv.setInMemorySupplier(this.suppliers);
     this.router.navigate(["/suppliers"], { replaceUrl: true });
   }
 

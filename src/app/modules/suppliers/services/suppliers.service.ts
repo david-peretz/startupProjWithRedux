@@ -9,11 +9,11 @@ import { ObservableStore } from "src/app/core/store/store";
 export class SuppliersService extends ObservableStore<Supplier[]> {
   private _suppliers: Supplier[] = [];
   suppliersUrl = "./suppliers.json";
-  private resourceService;
+  private genericHttpService;
 
   constructor(httpClient: HttpClient) {
     super([new Supplier()]);
-    this.resourceService = new GenericHttpService<Supplier>(
+    this.genericHttpService = new GenericHttpService<Supplier>(
       httpClient,
       this.suppliersUrl //,
       // new Serializer(Supplier)
@@ -26,20 +26,19 @@ export class SuppliersService extends ObservableStore<Supplier[]> {
     // this.setState({ customers }, CustomersStoreActions.GetCustomers);
     ////  return customers;
     //  }),
-    this._suppliers = await this.resourceService.list().toPromise();
-
+    this._suppliers = await this.genericHttpService.list().toPromise();
+    this.setState(this._suppliers);
     // return this.suppliers;
     //catchError(this.handleError)
     //);
   }
 
   get suppliers() {
-    return this._suppliers;
+    return this.getValue();
+    // return this._suppliers;
   }
 
-
-
-  updateLocal(supplier) {
+  setInMemorySupplier(supplier) {
     if (!supplier.id) {
       supplier.id = this.suppliers.length + 1;
       this.suppliers.push(supplier);
