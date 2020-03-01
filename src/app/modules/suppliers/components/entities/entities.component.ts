@@ -14,13 +14,18 @@ export class EntitiesComponent implements OnInit {
   models: any;
   private id: string;
 
-  constructor(searchService: SearchService, private suppliersService: SuppliersService) {
+  constructor(
+    searchService: SearchService,
+    private suppliersService: SuppliersService
+  ) {
     this.searchText$ = searchService.getState();
     console.log(this.searchText$);
   }
 
   async ngOnInit() {
-    this.models = await this.suppliersService.getAll();
+    await this.suppliersService.fetchSuppliers();
+
+    this.models = this.suppliersService.suppliers;
 
     console.log(this.models);
 

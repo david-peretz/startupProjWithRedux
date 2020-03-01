@@ -1,6 +1,6 @@
 import { Observable, BehaviorSubject } from "rxjs";
 
-export class Store<T> {
+export class ObservableStore<T> {
   private state$: BehaviorSubject<T>;
 
   protected constructor(initialState: T) {

@@ -13,6 +13,6 @@ export class SuppliersComponent implements OnInit {
   constructor(private service: SuppliersService) {}
 
   async ngOnInit() {
-    this.suppliers = await this.service.getAll();
+    this.suppliers = await this.service.suppliers;
   }
 }

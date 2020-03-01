@@ -1,6 +1,6 @@
-import { Store } from "../../../store/store";
+import { ObservableStore } from "../../../core/store/store";
 
-export class SearchService extends Store<{ searchText: string }[]> {
+export class SearchService extends ObservableStore<{ searchText: string }[]> {
   constructor() {
     super([{ searchText: "" }]);
   }

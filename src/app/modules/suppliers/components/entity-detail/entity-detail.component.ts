@@ -22,7 +22,8 @@ export class EntityDetailComponent implements OnInit {
   attributes: Attribute[] = [];
   async ngOnInit() {
     if (this.invalidValue) this.router.navigate(["/suppliers"]);
-    const suppliers = await this.suppliersSrv.getAll();
+    const suppliers = await this.suppliersSrv.suppliers;
+    
     const attributes = await this.attrSrv.getAll();
     this.attributes = [...attributes];
     if (this.isAddMode) return;
