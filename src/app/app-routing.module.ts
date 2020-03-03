@@ -5,11 +5,11 @@ const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "suppliers"
+    redirectTo: "orgs"
   },
   {
     path: "suppliers",
-    loadChildren: './modules/suppliers/suppliers.module#SuppliersModule',
+    loadChildren: "./modules/orgs/orgs.module#OrgsModule"
     // loadChildren: () =>
     //   import("./modules/suppliers/suppliers.module").then(
     //     m => m.SuppliersModule
